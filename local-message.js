@@ -4,8 +4,8 @@ const DEFAULT_LANG = 'en';
 
 const template = document.createElement('template');
 template.innerHTML = `
-<div>Please select the language</div>
 <div>
+<span>Please select the language:</span>
   <select id="select">
     <option value="en" selected>English</option>
     <option value="ru">Russian</option>
@@ -37,6 +37,9 @@ export class LocalMessage extends HTMLElement {
       wrapper.textContent = trn;
     });
     const wrapper = document.createElement('div');
+    wrapper.textContent = (
+      translations[DEFAULT_LANG] ?? translations[en]
+    ).hello;
     this.shadowRoot.appendChild(wrapper);
   }
 

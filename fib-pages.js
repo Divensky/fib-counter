@@ -24,7 +24,7 @@ export class FibPages extends HTMLElement {
     rightButton.addEventListener('click', () => this.update(5));
     this.shadowRoot.appendChild(this.leftButton);
     this.shadowRoot.appendChild(rightButton);
-    this.wrapper = document.createElement('span');
+    this.wrapper = document.createElement('div');
     this.wrapper.addEventListener('click', (ev) => {
       this.dispatchEvent(
         new CustomEvent('buttonClick', {

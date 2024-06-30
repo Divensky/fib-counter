@@ -1,3 +1,5 @@
+const label = `Click on a number to see countdown to this number`;
+
 export class Countdown extends HTMLElement {
   static get observedAttributes() {
     return ['seconds'];
@@ -18,14 +20,15 @@ export class Countdown extends HTMLElement {
       counter--;
       if (counter <= 0) {
         clearInterval(this.intervalId);
-        this.container.textContent = '';
+        this.container.textContent = label;
         return;
       }
-      this.container.textContent = counter;
+      this.container.textContent = `Remaining seconds are ${counter}`;
     }, 1000);
   }
   connectedCallback() {
     this.container = document.createElement('div');
+    this.container.textContent = label;
     this.shadowRoot.appendChild(this.container);
   }
 }
